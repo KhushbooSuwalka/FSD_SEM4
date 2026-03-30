@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Jquery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: lightblue;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 100px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p>Hello hover over this!!!!</p>
+    </div>
+    <button id="hidebtn">Hide button</button>
+
+    <script>
+        // Jquery code to change the background color of the box when it is clicked
+        $(document).ready(function () {
+            $("#box").click(function () {
+                $(this).css("background-color", "lightcoral");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#box").click(function () {
+                $(this).css("background-color", "lightcoral");
+            });
+
+            $("#hidebtn").mouseenter(function () {
+                $("#hidebtn").slideUp(1000).slideDown(1000);
+            });
+        });
+
+    </script>
+</body>
+
+</html>

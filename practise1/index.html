@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic light controller</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body class="bg-blue-100 flex justify-center min-h-screen">
+    <div>
+        <h1 class="text-3xl font-bold text-center mt-10">Traffic Light Controller</h1>
+
+        <div class="bg-neutral-900 p-6 mt-10 ml-20 rounded-2xl flex flex-col justify-center items-center space-y-4 w-32">
+
+            <!-- Red Light -->
+            <div id="redLight" class="w-16 h-16 rounded-full bg-red-600 "></div>
+
+            <!-- Yellow Light -->
+            <div id="yellowLight" class="w-16 h-16 rounded-full bg-yellow-400 opacity-30"></div>
+
+            <!-- Green Light -->
+            <div id="greenLight" class="w-16 h-16 rounded-full bg-green-500 opacity-30"></div>
+        </div>
+
+        <button id="LightBtn" onclick="changecolor()" class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">
+            Click the button to change the light
+        </button>
+        </div>
+    </div>
+    <script>
+        let currentColor = "red";
+        function changecolor() {
+            if (currentColor === "red") {
+                document.getElementById("redLight").style.opacity = "0.3";
+                document.getElementById("yellowLight").style.opacity = "1";
+                document.getElementById("greenLight").style.opacity = "0.3";
+                currentColor = "yellow";
+            } else if (currentColor === "yellow") {
+                document.getElementById("redLight").style.opacity = "0.3";
+                document.getElementById("yellowLight").style.opacity = "0.3";
+                document.getElementById("greenLight").style.opacity = "1";
+                currentColor = "green";
+            } else if (currentColor === "green") {
+                document.getElementById("redLight").style.opacity = "1";
+                document.getElementById("yellowLight").style.opacity = "0.3";
+                document.getElementById("greenLight").style.opacity = "0.3";
+                currentColor = "red";
+            }
+        }
+
+        //Using jquery  ????
+        // let currentColor="red";
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Counter</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function Counter() {
+
+      const { useState } = React;
+      const [count, setCount] = useState(0);
+
+      const increase = () => setCount(count + 1);
+      const decrease = () => setCount(count - 1);
+      const reset = () => setCount(0);
+
+      return (
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 to-indigo-500">
+
+          <div className="bg-white shadow-xl rounded-2xl p-10 text-center w-96">
+            <h1 className="text-3xl font-bold text-gray-800 mb-6">
+              React Counter
+            </h1>
+
+            <p className="text-5xl font-semibold text-indigo-600 mb-8">
+              {count}
+            </p>
+
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={increase}
+                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                Increase
+              </button>
+
+              <button
+                onClick={decrease}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+                Decrease
+              </button>
+
+              <button
+                onClick={reset}
+                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+                Reset
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Counter />);
+
+  </script>
+
+</body>
+</html>

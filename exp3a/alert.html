@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+</head>
+
+<body class="bg-neutral-900 flex items-center justify-center min-h-screen">
+    <div class="flex flex-col items-center gap-10">
+        <h1 class="text-5xl font-bold text-green-400">
+            Hello Spotify Fans!!!!
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-10 max-w-7xl">
+            <!-- Alert example -->
+            <div class="flex-1 bg-green-500 text-black p-5 text-center shadow-lg rounded-lg relative">
+                <h1 class="text-4xl font-bold flex justify-center items-center gap-2">
+                    <i class="bi bi-spotify"></i> Spotify Alert
+                </h1>
+                <p class="text-lg leading-relaxed font-semibold mb-4">
+                    This is an alert message styled for spotify!!!
+                </p>
+                <button onclick="showAlert()"
+                    class="bg-neutral-800 text-green-400 px-6 py-2 rounded-full font-semibold ">
+                    Submit
+                </button>
+            </div>
+
+            <!-- Popover example -->
+            <div class="flex-1 bg-green-500 text-black p-5 text-center shadow-lg rounded-lg relative">
+                <h1 class="text-4xl font-bold flex justify-center items-center gap-2">
+                    <i class="bi bi-spotify"></i> Spotify Popover
+                </h1>
+                <p class="text-lg leading-relaxed font-semibold mb-4">
+                    This is an popover styled for spotify!!!
+                </p>
+                <button onclick="togglePopover()" data-popover-target="popover"
+                    class="bg-neutral-800 text-green-400 px-6 py-2 rounded-full font-semibold ">Click me</button>
+                <div id="popover"
+                    class="hidden absolute left-1/2 -translate-x-1/2 mt-4 w-64 p-4 bg-white text-black rounded-lg shadow-lg">
+                    This is a Spotify styled popover!
+                </div>
+            </div>
+
+           <!-- AJAX Quiz example -->
+            <div class="flex flex-col md:flex-row gap-10 max-w-5xl">
+                <div class="bg-green-500 text-black p-5 text-center shadow-lg rounded-lg relative w-[400px] shrink-0">
+                    <h1 class="text-4xl font-bold flex justify-center items-center gap-2">
+                        <i class="bi bi-spotify"></i>AJAX Quiz
+                    </h1>
+                    <!-- Question Area -->
+                    <div id="question" class="text-lg font-semibold mb-4 leading-relaxed break-words ">
+                        Click "Load Question"
+                    </div>
+
+                    <!-- Answer Area -->
+                    <div id="answer" class="text-md font-medium text-neutral-800 mb-4 hidden min-h-[40px]">
+                        Answer will appear here
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex justify-center gap-4">
+                        <button onclick="loadQuestion()"
+                            class="bg-neutral-800 text-green-400 px-6 py-2 rounded-full font-semibold">
+                            Load Question
+                        </button>
+
+                        <button onclick="showAnswer()"
+                            class="bg-neutral-800 text-green-400 px-6 py-2 rounded-full font-semibold">
+                            Show Answer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Alert Logic
+        function showAlert() {
+            alert("This is a Spotify styled alert!");
+        }
+
+        // Popover Logic
+        const popover = document.getElementById("popover");
+        popoverButton = document.querySelector("button[ data-popover-target='popover']");
+        popoverButton.addEventListener("click", () => {
+            popover.classList.toggle("hidden");
+        });
+
+        // AJAX Quiz Logic
+        let correctAnswer = "";
+        const ansDiv = document.getElementById("answer");
+
+        // Load Question using AJAX
+        function loadQuestion() {
+            document.getElementById("question").innerText = "Loading question...";
+            document.getElementById("answer").classList.add("hidden");
+
+            fetch("https://the-trivia-api.com/v2/questions?limit=1")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("question").innerText =
+                        "Question: " + data[0].question.text;
+                    correctAnswer = data[0].correctAnswer;
+                })
+                .catch(() => {
+                    document.getElementById("question").innerText =
+                        "Failed to load question!";
+                });
+        } 
+
+        // Show Answer
+        function showAnswer() {
+            if (correctAnswer === "") {
+                alert("Please load a question first!");
+                return;
+            }
+
+            ansDiv.innerText = "Answer: " + correctAnswer;
+            ansDiv.classList.remove("hidden");
+        }
+        
+    </script>
+
+
+</body>
+
+</html>

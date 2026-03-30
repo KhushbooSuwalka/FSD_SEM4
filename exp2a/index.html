@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Web Page using css</title>
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        h2 {
+            color: #1db954;
+            border-bottom: 2px solid #1db954;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #1db954;
+            color: white;
+        }
+
+        td,
+        th {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><i class="bi bi-spotify"></i> Spotify</h1>
+    </header>
+
+    <div class="container">
+        <p>
+            <b style="color:#1db954;">Spotify</b> is a Swedish audio streaming and media service provider founded in April
+            2006 by Daniel Ek and Martin Lorentzon. As of September 2025, it is one of the largest providers of music
+            streaming services, with over
+            <span style="color:#1db954; font-weight:bold;">713 million</span> monthly active users.
+        </p>
+
+        <p>
+            <b style="color:#1db954;">Spotify</b> offers DRM-protected audio content, including over 100 million songs and over 7 million podcast
+            titles from record labels and media companies.
+        </p>
+
+        <a href="https://www.spotify.com/us/" target="_blank" class="visit-btn">Visit Spotify</a>
+
+        <h2>Features of Spotify</h2>
+        <ul>
+            <li>Music Streaming</li>
+            <li>Podcast Streaming</li>
+            <li>Personalized Playlists</li>
+            <li>Offline Listening</li>
+            <li>Social Sharing</li>
+            <li>Cross-Platform Availability</li>
+        </ul>
+
+        <h2>Top Favourite Songs</h2>
+        <ol>
+            <li>Blinding Lights - The Weeknd</li>
+            <li>Levitating - Dua Lipa</li>
+            <li>Watermelon Sugar - Harry Styles</li>
+            <li>Save Your Tears - The Weeknd</li>
+            <li>Peaches - Justin Bieber</li>
+        </ol>
+
+        <h2>Trending Songs</h2>
+        <div class="images">
+            <img src="image1.jpg" width="200">
+            <img src="image2.jpg" width="200">
+            <img src="image3.jpg" width="200">
+            <img src="image4.jpg" width="200">
+        </div>
+
+        <h2>Subscription Plans</h2>
+        <table border="1">
+            <tr>
+                <th>Plan</th>
+                <th>Price per month</th>
+            </tr>
+            <tr>
+                <td>Student</td>
+                <td>$5.99</td>
+            </tr>
+            <tr>
+                <td>Individual</td>
+                <td>$9.99</td>
+            </tr>
+            <tr>
+                <td>Duo</td>
+                <td>$12.99</td>
+            </tr>
+            <tr>
+                <td>Family</td>
+                <td>$15.99</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Spotify. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

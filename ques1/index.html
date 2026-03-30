@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function handleClick() {
+            $("#btn1").text("Button Clicked");
+        }
+        function doubleclick() {
+            $("#btn2").css("background-color", "lightcoral");
+        }
+        //mouseover
+        $(document).ready(function () {
+            $("#btn1").mouseover(function () {
+                $("#btn1").innerHeight(100).innerWidth(200);
+            });
+        });
+        //mouseenter
+        $(document).ready(function () {
+            $("#btn3").mouseenter(function () {
+                alert("Mouse entered the button");
+            });
+        });
+        //mouseleave
+        $(document).ready(function () {
+            $("#btn3").mouseleave(function () {
+                alert("Mouse left the button");
+            });
+        });
+        //slideup on h2
+        $(document).ready(function () {
+            $("h2").click(function () {
+                $("h2").slideUp(1000).slideDown(1000);
+            });
+        });
+        let text=document.querySelector("#text");
+        text.style.backgroundColor="lightblue";
+        text.onclick=()=>{
+            text.style.backgroundColor="lightcoral";
+        }  
+        
+    </script>
+</head>
+<body>
+    <h2 id="text">Question 1</h2>
+    <button id="btn1" onclick="handleClick()">Click me</button>
+    <button id="btn2" onclick="doubleclick()">Click me twice</button>
+    <button id="btn3">Hover over me</button>
+</body>
+</html>

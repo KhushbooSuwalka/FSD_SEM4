@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX CSV Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-neutral-900 flex items-center justify-center min-h-screen">
+    <div class="bg-green-500 p-6 rounded-lg shadow-lg text-center">
+
+        <h1 class="text-3xl font-bold mb-4">Data of Heart Disease Prediction</h1>
+
+        <button onclick="loadData()" class="bg-neutral-800 text-green-400 px-6 py-2 rounded-full font-semibold mb-1 ">
+            Load the data
+        </button>
+        <br><br>
+        <table border="1" id="table" cellpadding="5" class="mx-auto mb-4 bg-white text-black rounded-md"></table>
+
+        <div class="text-lg bg-white text-black p-4 rounded-md">
+            Data will be loaded here....
+        </div>
+
+    </div>
+
+    <script>
+        function loadData() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "Heart_Disease_Prediction.csv", true);
+
+            request.onload = function () {
+                if (request.status === 200) {
+
+                    var rows = request.responseText.trim().split("\n");
+                    var table = "";
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var cols = rows[i].split(",");
+                        table += "<tr>";
+
+                        for (var j = 0; j < cols.length; j++) {
+                            table += "<td class='border px-2 py-1'>" + cols[j] + "</td>";
+                        }
+
+                        table += "</tr>";
+                    }
+
+                    document.getElementById("table").innerHTML = table;
+                } else {
+                    console.error("Error loading the CSV file.");
+                }
+            };
+            request.send();
+        }
+    </script>
+</body>
+
+</html>
