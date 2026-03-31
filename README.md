@@ -165,10 +165,3 @@ fsd/
 
 This work is submitted as part of the academic curriculum for Full Stack Development.
 
-## 📖 About
-
-This repository contains the practical experiments and projects developed as part of the **Full Stack Development (FSD) course in the 4th semester**. It showcases a progressive learning approach starting from basic web technologies like HTML, CSS, and JavaScript, and advancing towards modern frameworks and backend development using React, Node.js, Express, and MongoDB.
-
-The main objective of this repository is to demonstrate hands-on experience in building dynamic, responsive, and full-stack web applications. Each experiment focuses on a specific concept, helping in understanding both frontend and backend integration.
-
-This project serves as an academic record as well as a foundational step towards developing real-world web applications.
